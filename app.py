@@ -1,8 +1,12 @@
 import streamlit as st
 import pickle
 import pandas as pd
+import os
 
-with open("models/churn_model.pkl", "rb") as f:
+model_path = os.path.join("models", "churn_model.pkl")
+
+
+with open(model_path, "rb") as f:
     model = pickle.load(f)
 
 # st.title("📉 Telco Customer Churn Prediction")
