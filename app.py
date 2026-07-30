@@ -3,7 +3,10 @@ import pandas as pd
 import os
 import joblib
 
+# Path to the saved pipeline
 model_path = os.path.join("models", "churn_model.joblib")
+
+# Load the pipeline directly (no need for open())
 model = joblib.load(model_path)
 
 # st.title("📉 Telco Customer Churn Prediction")
