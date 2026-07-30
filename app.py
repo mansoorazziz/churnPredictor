@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import joblib
 
-model_path = os.path.join("models", "churn_model.json")
+model_path = os.path.join("models", "churn_model.joblib")
 model = joblib.load(model_path)
 
 # st.title("📉 Telco Customer Churn Prediction")
