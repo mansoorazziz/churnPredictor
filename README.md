@@ -19,6 +19,7 @@ This project predicts whether a customer is likely to churn based on contract ty
 - Scikit-learn
 - XGBoost
 - Pandas, NumPy
+- joblib
 
 ---
 

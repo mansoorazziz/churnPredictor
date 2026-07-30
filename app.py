@@ -2,12 +2,11 @@ import streamlit as st
 import pickle
 import pandas as pd
 import os
+import joblib
 
-model_path = os.path.join("models", "churn_model.pkl")
-
-
+model_path = os.path.join("models", "churn_model.joblib")
 with open(model_path, "rb") as f:
-    model = pickle.load(f)
+    model = joblib.load(f)
 
 # st.title("📉 Telco Customer Churn Prediction")
 st.title("Saudi Customer Churn Predictor | نظام التنبؤ بترك العملاء")
