@@ -1,7 +1,8 @@
 # EDA Analysis Module
-import pickle,os
+import os
 import pandas as pd
 import numpy as np
+from sklearn import pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
@@ -67,11 +68,12 @@ model.fit(X_train, y_train)
 # # Step 8: Save pipeline (includes preprocessing + model)
 # pickle.dump(model, open("models/churn_model.pkl", "wb"))
 
-#  Save after training
+# #  Save after training
+# joblib.dump(model, "models/churn_model.joblib")
+# print("✅ Preprocessing + Model training complete. Model saved to models/churn_model.joblib")
+
+# After training
 joblib.dump(model, "models/churn_model.joblib")
-print("✅ Preprocessing + Model training complete. Model saved to models/churn_model.joblib")
-
-
 
 # Predictions on test set
 y_pred = model.predict(X_test)
