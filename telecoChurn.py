@@ -1,8 +1,6 @@
 # EDA Analysis Module
 import os
 import pandas as pd
-import numpy as np
-from sklearn import pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
@@ -27,8 +25,10 @@ df["TotalCharges"] = df["TotalCharges"].fillna(df["TotalCharges"].median())
 # Feature Selection: Define numeric and categorical columns
 # Add new customer flag
 df["NewCustomer"] = (df["tenure"] < 12).astype(int)
+
 numeric_cols = ["SeniorCitizen", "tenure", "MonthlyCharges", "TotalCharges", "NewCustomer"]
 categorical_cols = ["Contract", "PaymentMethod", "InternetService","TechSupport","OnlineSecurity"]
+
 X = df[numeric_cols + categorical_cols]
 y = df["Churn"].map({"Yes": 1, "No": 0})  # Encode target
 
