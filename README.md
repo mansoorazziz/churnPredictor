@@ -1,5 +1,8 @@
 # 🇸🇦 Saudi Customer Churn Predictor 🚀
 
+## Live Demo
+Try the app here: https://churnpredictor-zfqcythccbkruxl8yhdzyu.streamlit.app/
+
 An AI-powered churn prediction app built with **Python, Streamlit, and XGBoost**, tailored for Saudi telecom recruiters.  
 This project predicts whether a customer is likely to churn based on contract type, payment method, internet service, and numeric features like tenure and charges.
 
