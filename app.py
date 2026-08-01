@@ -43,15 +43,18 @@ input_data = pd.DataFrame({
 #         st.error("⚠️ Customer likely to churn")
 #     else:
 #         st.success("✅ Customer likely to stay")
+# Add a slider for threshold adjustment
+threshold = st.slider("Decision Threshold", min_value=0.1, max_value=0.9, step=0.05, value=0.3)
+
 if st.button("Predict"):
-    # Get probability of churn (class 1)
+    # Get churn probability
     proba = model.predict_proba(input_data)[0][1]
 
     # Show probability as a metric
     st.metric(label="Churn Probability", value=f"{proba*100:.1f}%")
 
-    # Apply custom threshold
-    threshold = 0.3
+
+    # Apply threshold
     if proba > threshold:
         st.error("⚠️ Customer likely to churn")
     else:
