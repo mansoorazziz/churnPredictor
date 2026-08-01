@@ -37,9 +37,26 @@ input_data = pd.DataFrame({
     "NewCustomer": [1 if tenure < 12 else 0]
 })
 
+# if st.button("Predict"):
+#     prediction = model.predict(input_data)
+#     if prediction[0] == 1:
+#         st.error("⚠️ Customer likely to churn")
+#     else:
+#         st.success("✅ Customer likely to stay")
 if st.button("Predict"):
-    prediction = model.predict(input_data)
-    if prediction[0] == 1:
+    # Get probability of churn (class 1)
+    proba = model.predict_proba(input_data)[0][1]
+
+    # Show probability as a metric
+    st.metric(label="Churn Probability", value=f"{proba*100:.1f}%")
+
+    # Apply custom threshold
+    threshold = 0.3
+    if proba > threshold:
         st.error("⚠️ Customer likely to churn")
     else:
         st.success("✅ Customer likely to stay")
+
+    # Optional: show both class probabilities as a bar chart
+    probs = model.predict_proba(input_data)[0]
+    st.bar_chart({"Stay": [probs[0]], "Churn": [probs[1]]})
